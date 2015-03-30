@@ -50,6 +50,12 @@
 				<label><input type="checkbox" name="collapse" value="true" /> 코드를 접은 상태로 보여줍니다</label>
 			</td>
 		</tr>
+		<tr>
+			<th scope="row"><div>실시간 미리보기</div></th>
+			<td>
+				<label><input type="checkbox" id="autopreview" name="autopreview" /> 미리보기를 자동으로 업데이트합니다. 코드가 길어서 실시간 미리보기가 힘들어지면 끄세요.</label>
+			</td>
+		</tr>
 		</table>
 	</div>
 
@@ -58,11 +64,11 @@
 		<a href="#" onclick="insertCode()" class="btn"><span>{$lang->cmd_submit}</span></a>
 	</div>
 </form>
-
+<hr>
 <div id="preview" style="width:600px; overflow:hidden;">
 	
 </div>
-
+<hr>
 <p style="text-align: center;">
 	<a href="https://www.youtube.com/watch?v=99cp00wr_S4" target="_blank">사지마세요 입양하세요.</a>
 </p>
@@ -77,8 +83,33 @@ $(function() {
 	var btnPreview$ = form$.find('#btn_preview');
 
 	btnPreview$.click(previewCode);
-});
 
+	$('#autopreview').click(function() {
+        if ($(this).is(':checked')) {
+			btnPreview$.closest('span').hide();
+		}
+		else {
+			btnPreview$.closest('span').show();
+		}
+	});
+	$("input:checkbox[name='collapse']").click(autoPreview);
+	$("input:checkbox[name='nogutter']").click(autoPreview);
+	$("select[name='code_type']").change(autoPreview);
+	$("textarea[name='code']").bind('input propertychange', autoPreview);
+	$("input[name='title']").bind('input propertychange', autoPreview);
+	$("input[name='first_line']").bind('input propertychange', autoPreview);
+	$("input[name='highlight']").bind('input propertychange', autoPreview);
+
+	if ($("textarea[name='code']").val().length) {
+		$("#autopreview").attr("checked",true);
+		autoPreview();
+	}
+});
+function autoPreview() {
+	if ($("input:checkbox[id='autopreview']").is(":checked") == true) {
+		previewCode();
+	}
+}
 function previewCode()
 {
 	var form$ = jQuery('#fo');
@@ -92,6 +123,7 @@ function previewCode()
 	window.SyntaxHighlighter.vars.discoveredBrushes = null;
 	window.SyntaxHighlighter.autoloader({$brush_autoload});
 	window.SyntaxHighlighter.all();
+
 	setFixedPopupSize();
 }
 }) (jQuery);

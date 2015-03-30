@@ -22,7 +22,7 @@ class code_highlighter extends EditorHandler
 		array('Groovy', 'Groovy', 'groovy'),
 		array('Java', 'Java', 'java'),
 		array('JavaFX', 'JavaFX', 'jfx javafx'),
-		array('JavasSript', 'JScript', 'js jscript javascript'),
+		array('JavaScript', 'JScript', 'js jscript javascript'),
 		array('Perl', 'Perl', 'perl pl'),
 		array('PHP', 'Php', 'php'),
 		array('PowerShell', 'PowerShell', 'powershell ps'),

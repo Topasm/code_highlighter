@@ -15,7 +15,7 @@
 	<description xml:lang="zh-CN">高亮显示所选代码。</description>
 	<description xml:lang="zh-TW">將所選取的語法高亮度顯示。</description>
 	<version>1.4</version>
-	<date>2015-03-15</date>
+	<date>2015-03-23</date>
 	<license>MIT, GNU LGPL</license>
 	<link>https://github.com/xe-public</link>
 
@@ -38,6 +38,30 @@
 				Default, Django, Eclipse, Emacs, FadeToGrey, MDUltra, Midnight, RDark
 				]]>
 			</description>
+			<options value="Default">
+				<title xml:lang="ko">Default</title>
+			</options>
+			<options value="Django">
+				<title xml:lang="ko">Django</title>
+			</options>
+			<options value="Eclipse">
+				<title xml:lang="ko">Eclipse</title>
+			</options>
+			<options value="Emacs">
+				<title xml:lang="ko">Emacs</title>
+			</options>
+			<options value="FadeToGrey">
+				<title xml:lang="ko">FadeToGrey</title>
+			</options>
+			<options value="MDUltra">
+				<title xml:lang="ko">MDUltra</title>
+			</options>
+			<options value="Midnight">
+				<title xml:lang="ko">Midnight</title>
+			</options>
+			<options value="RDark">
+				<title xml:lang="ko">RDark</title>
+			</options>
 		</var>
 	</extra_vars>
 </component>
